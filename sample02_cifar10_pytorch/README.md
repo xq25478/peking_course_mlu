@@ -1,4 +1,4 @@
-cifar10分类sample
+基于mlu的cifar10分类sample
 
 ### train 
 ```
