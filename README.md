@@ -1,1 +1,1 @@
-# peking_course_mlu
+# [ch02 cifar10_pytorch 原始实现](https://github.com/kuangliu/pytorch-cifar)
