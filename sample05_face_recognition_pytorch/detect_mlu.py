@@ -2,10 +2,10 @@ from src import detect_faces, show_bboxes
 from PIL import Image
 import os
 
-images = os.listdir("./images")
-for i in range(1, 6):
+images = os.listdir("./person_detect")
+for i in range(len(images)):
     print("Detecting: ",images[i])
-    image = Image.open("./images/" + images[i])
+    image = Image.open("./person_detect/" + images[i])
 
     image = image.resize((480, 480), Image.LANCZOS)
 
