@@ -1,1 +1,1 @@
-### [sample cifar10_pytorch 原始实现](https://github.com/kuangliu/pytorch-cifar)
+示例使用方法见网络单独README
