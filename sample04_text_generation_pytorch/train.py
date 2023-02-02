@@ -77,4 +77,4 @@ model = Model(dataset)
 model = model.to(device)
 
 train(dataset, model, args)
-print(predict(dataset, model, text='Knock knock. Whos there?'))
+print(predict(dataset, model, text='if you’ll take a tip'))
