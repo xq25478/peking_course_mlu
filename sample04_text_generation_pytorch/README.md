@@ -1,6 +1,6 @@
 基于MLU370的lstm 文本生成示例程序
 
-### Train && Validation 
+### 训练 && 验证 
 - 运行
 ```
 bash train.sh
@@ -20,5 +20,3 @@ bash train.sh
 ['Knock', 'knock.', 'Whos', 'there?', 'use', 'the', 'cow', 'say', 'into', 'the', 'jumper', 'Frank', 'that', "doesn't", 'not', 'side', 'Did', 'you', 'hear', 'about', 'the', 'two', 'silk', 'worms', 'that', 'wants', 'to', 'start', '&gt;', 'Robert', 'need', 'in', 'start', 'car?', 'It', 'which', 'tribesman', 'said', 'there', 'was', 'so', 'Mom', 'single', 'far,', 'but', 'of', 'them', 'far', 'who', 'said', 'he', 'wet', 'it', 'scares', 'your', 'best', 'joke', 'since', 'I', 'was', 'thinking', 'of', 'them', 'today', 'steal', 'me', 'before', 'me', 'students', 'to', 'said,', 'Why', 'were', 'the', 'German', 'Horseman', 'blush?', 'It', 'was', 'such', 'a', 'little', 'wine', 'What', 'do', 'cows', 'unlock', 'a', 'monastery', 'key', 'that', 'opens', 'come', 'tie', 'coming', 'around?', 'Why', 'did', 'the', 'chicken', 'cross', 'the', 'road?', '...he']
 
 ```
-
-### Test 

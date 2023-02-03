@@ -1,5 +1,6 @@
 - pip 
 ```
+source /torch/venv3/pytorch/bin/activate
 pip install -r requirements.txt
 ```
 
