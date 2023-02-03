@@ -1,26 +1,23 @@
-# MTCNN
-
-`pytorch` implementation of **inference stage** of face detection algorithm described in  
-[Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks](https://arxiv.org/abs/1604.02878).
-
-## Example
-![example of a face detection](images/example.png)
-
-## How to use it
-Just download the repository and then do this
-```python
-from src import detect_faces
-from PIL import Image
-
-image = Image.open('image.jpg')
-bounding_boxes, landmarks = detect_faces(image)
+## 运行
 ```
-For examples see `test_on_images.ipynb`.
+bash run.sh
+```
+## 使用说明
+**对存放于images下的每一张图片进行逐一人脸检测和人脸识别对比**
 
-## Requirements
-* pytorch 0.2
-* Pillow, numpy
+### 人脸检测功能
 
-## Credit
-This implementation is heavily inspired by:
-* [pangyupo/mxnet_mtcnn_face_detection](https://github.com/pangyupo/mxnet_mtcnn_face_detection)  
+- 通过mtcnn模型进行人脸检测,将人脸在检测图片上进行标注
+
+- 人脸检测图片存放于output/detect_img下
+
+- 人脸分割图片存放于output/faces_img下
+
+### 人脸对比功能
+
+- 通过facenet模型对人脸特征向量进行提取,与预先数据库中具有权限的人脸特征向量进行对比，
+输出数值(0-1)表明最小特征向量距离,值越低表明与数据库的人脸特征越相似，具有权限的概率越大
+
+- 人脸对比结果图片存放于output/recognition_img
+
+其中对比结果当中会标注和数据库当中的哪张图片最相似以及最小相似距离(0-1)
