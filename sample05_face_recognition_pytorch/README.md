@@ -1,6 +1,6 @@
 ## 运行
 ```
-bash run.sh
+bash detect.sh
 ```
 ## 使用说明
 **对存放于images下的每一张图片进行逐一人脸检测和人脸识别对比**
@@ -9,9 +9,9 @@ bash run.sh
 
 - 通过mtcnn模型进行人脸检测,将人脸在检测图片上进行标注
 
-- 人脸检测图片存放于output/detect_img下
+- 人脸检测结果图片存放于output/detect_img下
 
-- 人脸分割图片存放于output/faces_img下
+- 人脸分割结果图片存放于output/faces_img下
 
 ### 人脸对比功能
 
