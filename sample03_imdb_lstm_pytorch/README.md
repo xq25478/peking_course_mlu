@@ -1,32 +1,14 @@
-# ex1
 
-## run tensorlayerX demo
-```
-python ex1_imdb_lstm.py
-```
+# imdb lstm 分类实验
 
-log
-```
-Epoch 1 of 5 took 0.01702260971069336
-   train loss: 0.6931127905845642
-   train acc:  0.546875
-
-....
-
-Epoch 5 of 5 took 2.6423957347869873
-   train loss: 0.17205196619033813
-   train acc:  0.9357527955271565
-```
-
-
-## run mlu torch demo
-
+## 执行命令：
 ```
 python  ex1_imdb_lstm_torch.py
 ```
+训练5 epoch, 耗时约1min，训练分类精度为 0.911
 
-log
-```
+## 参考结果如下：
+```log
 vocab_size:  20001
 ImdbNet(
   (embedding): Embedding(20001, 64)
