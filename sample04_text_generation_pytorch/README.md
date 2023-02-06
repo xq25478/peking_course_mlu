@@ -17,6 +17,7 @@ bash train.sh
 {'epoch': 499, 'batch': 91, 'loss': 0.023265302181243896}
 {'epoch': 499, 'batch': 92, 'loss': 0.023684531450271606}
 {'epoch': 499, 'batch': 93, 'loss': 0.018991224467754364}
+#下面一行为对输入的话进行后续文本预测
 ['Knock', 'knock.', 'Whos', 'there?', 'use', 'the', 'cow', 'say', 'into', 'the', 'jumper', 'Frank', 'that', "doesn't", 'not', 'side', 'Did', 'you', 'hear', 'about', 'the', 'two', 'silk', 'worms', 'that', 'wants', 'to', 'start', '&gt;', 'Robert', 'need', 'in', 'start', 'car?', 'It', 'which', 'tribesman', 'said', 'there', 'was', 'so', 'Mom', 'single', 'far,', 'but', 'of', 'them', 'far', 'who', 'said', 'he', 'wet', 'it', 'scares', 'your', 'best', 'joke', 'since', 'I', 'was', 'thinking', 'of', 'them', 'today', 'steal', 'me', 'before', 'me', 'students', 'to', 'said,', 'Why', 'were', 'the', 'German', 'Horseman', 'blush?', 'It', 'was', 'such', 'a', 'little', 'wine', 'What', 'do', 'cows', 'unlock', 'a', 'monastery', 'key', 'that', 'opens', 'come', 'tie', 'coming', 'around?', 'Why', 'did', 'the', 'chicken', 'cross', 'the', 'road?', '...he']
 
 ```

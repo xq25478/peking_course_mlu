@@ -17,10 +17,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 是否需要重新生成预定人脸特征数据库 
-# 存放权限的人脸照片路径 datas/faces_lib
-# 存放权限的人脸特征路径 datas/faces_feature
-
 GENGRATE_FACE_LIB = True
 faces_lib_path = 'datas/faces_lib'
 faces_feature_path = 'datas/faces_feature'
@@ -28,6 +24,9 @@ faces_feature_path = 'datas/faces_feature'
 if __name__ == "__main__":
     fs = FaceSystem()
 
+    # 是否需要重新生成预定人脸特征数据库 
+    # 存放权限的人脸照片路径 datas/faces_lib
+    # 存放权限的人脸特征路径 datas/faces_feature
     if GENGRATE_FACE_LIB :
         features = []
         feature_images_paths = []
@@ -60,7 +59,6 @@ if __name__ == "__main__":
     save_recognition_path = 'output/recognition_img'
     
     for detect_img in os.listdir(detect_images_path):
-        
         # 人脸检测 当前示例仅支持1个人脸
         print("Face Detecting and Recognizing: ",detect_img)
         image = Image.open(os.path.join(detect_images_path,detect_img))
