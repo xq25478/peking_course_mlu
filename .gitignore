@@ -2,3 +2,5 @@
 __pytorch__/
 data/
 *.pt
+*.pyc
+*.swp

@@ -122,7 +122,7 @@ def main():
 
     test_batch_size = 16
     train_kwargs = {'batch_size': batch_size}
-    test_kwargs = {'batch_size': test_batch_size}
+    # test_kwargs = {'batch_size': test_batch_size}
 
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -132,16 +132,13 @@ def main():
     dataset2 = datasets.MNIST('../data', train=False,
                               transform=transform)
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
-    test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
+    # test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
     model = MLP.to(device)
     optimizer = optim.Adam(model.parameters(), lr=0.01)
-    gamma = 0.7
-    # scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
     for epoch in range(1, n_epoch + 1):
         train(model, device, train_loader, optimizer, epoch)
         # test(model, device, test_loader)
-        # scheduler.step()
     save_model = False
     if save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")

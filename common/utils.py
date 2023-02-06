@@ -1,4 +1,5 @@
 import gzip
+import tarfile
 import torch
 import six.moves.cPickle as pickle
 import numpy as np
@@ -7,6 +8,37 @@ import os
 import math
 import progressbar
 import logging
+
+def exists_or_mkdir(path, verbose=True):
+    """Check a folder by given name, if not exist, create the folder and return False,
+    if directory exists, return True.
+
+    Parameters
+    ----------
+    path : str
+        A folder path.
+    verbose : boolean
+        If True (default), prints results.
+
+    Returns
+    --------
+    boolean
+        True if folder already exist, otherwise, returns False and create the folder.
+
+    Examples
+    --------
+    >>> tlx.files.exists_or_mkdir("checkpoints/train")
+
+    """
+    if not os.path.exists(path):
+        if verbose:
+            logging.info("[*] creates %s ..." % path)
+        os.makedirs(path)
+        return False
+    else:
+        if verbose:
+            logging.info("[!] %s exists ..." % path)
+        return True
 
 def maybe_download_and_extract(filename, working_directory, url_source, extract=False, expected_bytes=None):
     """Checks if file exists in working_directory otherwise tries to dowload the file,
@@ -61,6 +93,30 @@ def maybe_download_and_extract(filename, working_directory, url_source, extract=
         logging.info('Downloading %s...\n' % filename)
 
         urlretrieve(url_source + filename, filepath, reporthook=_dlProgress)
+
+    exists_or_mkdir(working_directory, verbose=False)
+    filepath = os.path.join(working_directory, filename)
+
+    if not os.path.exists(filepath):
+
+        _download(filename, working_directory, url_source)
+        statinfo = os.stat(filepath)
+        logging.info('Succesfully downloaded %s %s bytes.' % (filename, statinfo.st_size))  # , 'bytes.')
+        if (not (expected_bytes is None) and (expected_bytes != statinfo.st_size)):
+            raise Exception('Failed to verify ' + filename + '. Can you get to it with a browser?')
+        if (extract):
+            if tarfile.is_tarfile(filepath):
+                logging.info('Trying to extract tar file')
+                tarfile.open(filepath, 'r').extractall(working_directory)
+                logging.info('... Success!')
+            elif zipfile.is_zipfile(filepath):
+                logging.info('Trying to extract zip file')
+                with zipfile.ZipFile(filepath) as zf:
+                    zf.extractall(working_directory)
+                logging.info('... Success!')
+            else:
+                logging.info("Unknown compression_format only .tar.gz/.tar.bz2/.tar and .zip supported")
+    return filepath
 
 
 def load_imdb_dataset(

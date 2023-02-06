@@ -1,27 +1,28 @@
-# Usage
+# 用DCGAN在 celebA 数据集上实现人脸生成实验
+## 准备数据集
 
-First, download the aligned face images from [google](https://drive.google.com/open?id=0B7EVK8r0v71pWEZsZE9oNnFzTm8) or [baidu](https://pan.baidu.com/s/1eSNpdRG#list/path=%2F) to a `data` folder.
+1. 从如下链接中下载数据集 [google](https://drive.google.com/open?id=0B7EVK8r0v71pWEZsZE9oNnFzTm8) or [baidu](https://pan.baidu.com/s/1eSNpdRG#list/path=%2F)
 
-Please place dataset 'img_align_celeba.zip' under 'data/celebA/' by default.
-
-Your directory structure should look like this:
+2. 解压数据集到当前文件夹，数据集应当有如下格式
 
 ```
-ch04/
-    └── README.md
-    └── data
-          └── celebA
-            └── img_align_celeba
-                └── xxxx.jpg
-                └── ......
+    data
+      └── celebA
+        └── img_align_celeba
+            └── xxxx.jpg
+            └── ......
 
 ```
 
-Second, train the GAN:
+## 执行命令：
 
-    $ python dcgan_faces_tutorial.py # code copy from https://github.com/pytorch/tutorials/blob/master/beginner_source/dcgan_faces_tutorial.py
+```shell
+python dcgan_faces_tutorial.py 
+```
+训练 5 epoch, 耗时约 30min
 
-# LOG
+## 参考结果如下：
+### 1. 日志
 ```
 Random Seed:  999
 [2023-2-2 17:45:42] [CNNL] [Warning]:[cnnlClip] is deprecated and will be removed in the future release, please use [cnnlClip_v2] instead.
@@ -226,5 +227,7 @@ Starting Training Loop...
 ```
 
 
-# 训练效果
-![Fake_Images.jpg](Fake_Images.jpg) 
+### 训练效果
+![generate_images.jpg](generate_images.jpg) 
+
+训练完成后在当前文件夹下保存为 Fake_Images.jpg

@@ -11,7 +11,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(),"../")))
 from common.utils import load_imdb_dataset, Accuracy
-device = torch.device("mlu:3")
+device = torch.device("mlu:0")
 prev_h = np.random.random([1, 200, 64]).astype(np.float32)
 prev_h = torch.FloatTensor(prev_h).to(device)
 
@@ -91,20 +91,9 @@ def train(model, device, train_loader, optimizer, epoch):
         train_loss +=  loss.item()
         metric.reset()
         n_iter+=1
-    # print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f} \t Acc: {:.6f}'.format(
-    #     epoch, batch_idx * len(data), len(train_loader.dataset),
-    #     100. * batch_idx / len(train_loader), loss.item(),train_acc/n_iter))
     print('Train Epoch: {} Loss: {:.6f} \t Acc: {:.6f}'.format(
         epoch, train_loss / n_iter,train_acc/n_iter))
 optimizer = torch.optim.Adam(net.parameters(),lr=1e-3,weight_decay=0.0)
 gamma = 0.7
-# scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
 for epoch in range(1, n_epoch + 1):
     train(net, device, train_loader, optimizer, epoch)
-    # test(model, device, test_loader)
-    # scheduler.step()
-
-# metric = torch.metrics.Accuracy()
-# loss_fn = torch.losses.softmax_cross_entropy_with_logits
-# model = torch.model.Model(network=net, loss_fn=loss_fn, optimizer=optimizer, metrics=metric)
-# model.train(n_epoch=n_epoch, train_dataset=train_loader, print_freq=print_freq, print_train_batch=True)
