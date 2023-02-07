@@ -85,6 +85,7 @@ if __name__ == "__main__":
                     min_value_image_path = feature_images_paths[idx]
             cv2.putText(image,str(min_value_image_path)+" "+str(min_value),(x2,y1),cv2.FONT_HERSHEY_SIMPLEX, 0.50, (0,255, 0), 1)
         
+        # 将最相似人脸贴在左上角
         mask = cv2.imread(os.path.join(faces_lib_path,min_value_image_path))
         ratio = 3
         r,c,ch = mask.shape
