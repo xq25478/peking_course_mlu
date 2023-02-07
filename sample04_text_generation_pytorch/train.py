@@ -13,7 +13,7 @@ global ct
 
 device = torch.device('mlu' if torch.mlu.is_available() else 'cpu')
 
-
+# 模型训练
 def train(dataset, model, args):
     model.train()
 
@@ -46,6 +46,7 @@ def train(dataset, model, args):
 
             print({ 'epoch': epoch, 'batch': batch, 'loss': loss.item() })
 
+#模型预测
 def predict(dataset, model, text, next_words=100):
     words = text.split(' ')
     model.eval()
@@ -77,4 +78,5 @@ model = Model(dataset)
 model = model.to(device)
 
 train(dataset, model, args)
-print(predict(dataset, model, text='if you’ll take a tip'))
+# 输入一句话 模型自动补充后续文本
+print(predict(dataset, model, text='if you will take a tip'))

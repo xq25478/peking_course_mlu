@@ -95,7 +95,7 @@ optimizer = optim.SGD(net.parameters(), lr=args.lr,
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
 
-# Training
+# 模型训练
 def train(epoch):
     print('\nEpoch: %d' % epoch)
     net.train()
@@ -118,6 +118,7 @@ def train(epoch):
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                      % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
+# 模型验证
 def test(epoch):
     global best_acc
     net.eval()
