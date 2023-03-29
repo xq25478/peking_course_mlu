@@ -1,3 +1,9 @@
+## 权重下载
+```
+mkdir -p ./face/facenet/weights
+gdown https://drive.google.com/file/d/1mx8-YZpGnBw3nAEC_MBtGs8j94AskDBB/view ./face/facenet/weights/model_resnet34_triplet.pt
+```
+
 ## 运行
 ```
 bash detect.sh
